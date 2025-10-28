@@ -516,10 +516,12 @@ config_remote() {
 		yes|no|"")
 			;;
 		*)
-			fatal "aggressive value $aggressive invalid"
+			warning "aggressive value '$aggressive' invalid; ignoring"
 			aggressive=""
 			;;
 		esac
+	else
+		aggressive=""
 	fi
 
 	[ "$gateway" = "any" ] && remote_gateway="%any" || remote_gateway="$gateway"
